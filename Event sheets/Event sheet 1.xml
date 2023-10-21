@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<c2eventsheet>
+    <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
+    <name>Event sheet 1</name>
+    <events>
+        <variable constant="0" name="target_exit" sid="906938216859309" static="0" type="text"></variable>
+        <event-group description="" sid="547079463332574" title="Player actions">
+            <sub-events>
+                <event-block sid="999487786971529">
+                    <conditions>
+                        <condition id="0" name="On key pressed" sid="836270403183518" type="Keyboard">
+                            <param id="0" name="Key">32</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="655733492501352" type="Player">
+                            <param id="0" name="Control">2</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="809815907737930">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="377683232815568" type="Keyboard">
+                            <param id="0" name="Key">65</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="411251153842797" type="Player">
+                            <param id="0" name="Control">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="441237002309240">
+                    <conditions>
+                        <condition id="2" name="Key is down" sid="899308742044159" type="Keyboard">
+                            <param id="0" name="Key">68</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action behavior="Platform" id="7" name="Simulate control" sid="932459536714048" type="Player">
+                            <param id="0" name="Control">1</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
+        </event-group>
+        <event-group description="" sid="700691445421954" title="Door actions">
+            <sub-events>
+                <event-block sid="653201480209571">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="291416610635634" type="Player">
+                            <param id="0" name="Object">Door</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-16" name="Wait" sid="836295530864420" type="System">
+                            <param id="0" name="Seconds">0.2</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="165159546144338">
+                            <conditions>
+                                <condition id="2" name="Key is down" sid="850498321333742" type="Keyboard">
+                                    <param id="0" name="Key">13</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="302726406629949" type="System">
+                                    <param id="0" name="Variable">target_exit</param>
+                                    <param id="1" name="Value">Door.exitID</param>
+                                </action>
+                                <action id="-25" name="Go to layout (by name)" sid="598002889621877" type="System">
+                                    <param id="0" name="Layout">Door.exitLayout</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+                <event-block sid="114155691219033">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="156987524383275" type="System" />
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="572444371560769">
+                            <conditions>
+                                <condition id="-34" name="Pick by evaluate" sid="577445103411850" type="System">
+                                    <param id="0" name="Object">Door</param>
+                                    <param id="1" name="Expression">Door.ID = target_exit</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-4" name="Set position to another object" sid="500739253183655" type="Player">
+                                    <param id="0" name="Object">Door</param>
+                                    <param id="1" name="Image point (optional)">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
+    </events>
+</c2eventsheet>
