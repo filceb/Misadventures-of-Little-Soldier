@@ -3,6 +3,7 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="AttackCooldown" sid="594527560554891" static="0" type="number">0</variable>
         <variable constant="0" name="target_exit" sid="906938216859309" static="0" type="text"></variable>
         <event-group description="" sid="547079463332574" title="Player actions">
             <sub-events>
@@ -28,6 +29,9 @@
                         <action behavior="Platform" id="7" name="Simulate control" sid="411251153842797" type="Player">
                             <param id="0" name="Control">0</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="871980000513152" type="Player">
+                            <param id="0" name="State">0</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-block sid="441237002309240">
@@ -40,7 +44,149 @@
                         <action behavior="Platform" id="7" name="Simulate control" sid="932459536714048" type="Player">
                             <param id="0" name="Control">1</param>
                         </action>
+                        <action id="7" name="Set mirrored" sid="663931583916237" type="Player">
+                            <param id="0" name="State">1</param>
+                        </action>
                     </actions>
+                </event-block>
+                <event-group description="" sid="733997094959776" title="Attack">
+                    <sub-events>
+                        <event-block sid="581442967175349">
+                            <conditions>
+                                <condition id="0" name="On click" sid="879261738515035" type="Mouse">
+                                    <param id="0" name="Mouse button">0</param>
+                                    <param id="1" name="Click type">0</param>
+                                </condition>
+                                <condition id="-14" name="Compare variable" sid="821215704287401" type="System">
+                                    <param id="0" name="Variable">AttackCooldown</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="-9" name="Set value" sid="241471314620759" type="System">
+                                    <param id="0" name="Variable">AttackCooldown</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="929032791268514">
+                                    <conditions>
+                                        <condition id="7" name="Is mirrored" sid="968666725747441" type="Player" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="773633244969834" type="Player">
+                                            <param id="0" name="Object">KillBox</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="7" name="Set mirrored" sid="582650504391138" type="KillBox">
+                                            <param id="0" name="State">0</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="482635663340679" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="811578114379375" type="KillBox" />
+                                        <action id="-16" name="Wait" sid="598259232291518" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="338227889817911" type="System">
+                                            <param id="0" name="Variable">AttackCooldown</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="327780884935989">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="983278691786527" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="0" name="Spawn another object" sid="833335147408313" type="Player">
+                                            <param id="0" name="Object">KillBox</param>
+                                            <param id="1" name="Layer">0</param>
+                                            <param id="2" name="Image point">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="579197645474316" type="System">
+                                            <param id="0" name="Seconds">0.1</param>
+                                        </action>
+                                        <action id="-9" name="Destroy" sid="691665545176045" type="KillBox" />
+                                        <action id="-16" name="Wait" sid="135452552578672" type="System">
+                                            <param id="0" name="Seconds">1.0</param>
+                                        </action>
+                                        <action id="-9" name="Set value" sid="996027637219598" type="System">
+                                            <param id="0" name="Variable">AttackCooldown</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="679194893942740">
+                            <conditions>
+                                <condition id="-14" name="Compare variable" sid="245195797161389" type="System">
+                                    <param id="0" name="Variable">AttackCooldown</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="544342446418962">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="122958538403954" type="Player">
+                            <param id="0" name="Object">Enemy</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                    <sub-events>
+                        <event-block sid="557232735042171">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="171096227924785" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="482763464498944" type="Player">
+                                    <param id="0" name="Vector Y">-300</param>
+                                </action>
+                                <action behavior="ScrollTo" id="0" name="Shake" sid="235815248139205" type="Player">
+                                    <param id="0" name="Magnitude">15</param>
+                                    <param id="1" name="Duration">0.4</param>
+                                    <param id="2" name="Mode">0</param>
+                                </action>
+                            </actions>
+                            <sub-events>
+                                <event-block sid="228416797495731">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="751946682561559" type="Player">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="678827997327447" type="Player">
+                                            <param id="0" name="Vector X">10000</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="267509848610483">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="241564274023659" type="Player">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="646412221327618" type="Player">
+                                            <param id="0" name="Vector X">-10000</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
                 </event-block>
             </sub-events>
         </event-group>
@@ -102,6 +248,16 @@
         </event-group>
         <event-group description="" sid="230119328874840" title="Enemy actions">
             <sub-events>
+                <event-block sid="909355713816257">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="528406629579244" type="Enemy">
+                            <param id="0" name="Object">KillBox</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="119964852793017" type="Enemy" />
+                    </actions>
+                </event-block>
                 <event-group description="" sid="810753007821350" title="Movement">
                     <sub-events>
                         <event-block sid="526740264653112">
@@ -224,12 +380,7 @@
                             <param id="0" name="Object">Player</param>
                         </condition>
                     </conditions>
-                    <actions>
-                        <action id="-12" name="Set group active" sid="713945675321711" type="System">
-                            <param id="0" name="Group name">&quot;Movement&quot;</param>
-                            <param id="1" name="State">0</param>
-                        </action>
-                    </actions>
+                    <actions />
                     <sub-events>
                         <event-block sid="432216331409256">
                             <conditions>
@@ -241,13 +392,46 @@
                                 <action behavior="Platform" id="9" name="Set vector Y" sid="433373174933532" type="Enemy">
                                     <param id="0" name="Vector Y">-100</param>
                                 </action>
-                                <action behavior="Platform" id="8" name="Set vector X" sid="793632977429512" type="Enemy">
-                                    <param id="0" name="Vector X">1000</param>
+                                <action id="-12" name="Set group active" sid="713945675321711" type="System">
+                                    <param id="0" name="Group name">&quot;Movement&quot;</param>
+                                    <param id="1" name="State">0</param>
                                 </action>
                                 <action id="-16" name="Wait" sid="444445516371171" type="System">
-                                    <param id="0" name="Seconds">1.0</param>
+                                    <param id="0" name="Seconds">0.3</param>
+                                </action>
+                                <action id="-12" name="Set group active" sid="843878133206866" type="System">
+                                    <param id="0" name="Group name">&quot;Movement&quot;</param>
+                                    <param id="1" name="State">1</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="786293455556320">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="640003627479640" type="Player">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="793632977429512" type="Enemy">
+                                            <param id="0" name="Vector X">-5000</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="694407011423906">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="549057817448789" type="Player">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action behavior="Platform" id="8" name="Set vector X" sid="289603289173472" type="Enemy">
+                                            <param id="0" name="Vector X">5000</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
