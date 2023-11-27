@@ -100,5 +100,158 @@
                 </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="230119328874840" title="Enemy actions">
+            <sub-events>
+                <event-group description="" sid="810753007821350" title="Movement">
+                    <sub-events>
+                        <event-block sid="526740264653112">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="330250419588167" type="Enemy">
+                                    <param id="0" name="Instance variable">Patrol</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="713563887160573" type="Enemy">
+                                    <param id="0" name="Control">1</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="929786996928300">
+                            <conditions>
+                                <condition id="-7" name="Compare instance variable" sid="402605565395392" type="Enemy">
+                                    <param id="0" name="Instance variable">Patrol</param>
+                                    <param id="1" name="Comparison">0</param>
+                                    <param id="2" name="Value">0</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="7" name="Simulate control" sid="369542794091971" type="Enemy">
+                                    <param id="0" name="Control">0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                        <event-block sid="703966940832869">
+                            <conditions>
+                                <condition behavior="LineOfSight" id="0" name="Has LOS to object" sid="461418932208933" type="Enemy">
+                                    <param id="0" name="Object">Player</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="491187260386991">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="928968438458480" type="Player">
+                                            <param id="0" name="Comparison">2</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="879903465695444" type="Enemy">
+                                            <param id="0" name="Instance variable">Patrol</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="432601197468900">
+                                    <conditions>
+                                        <condition id="-1" name="Compare X" sid="211218652080674" type="Player">
+                                            <param id="0" name="Comparison">4</param>
+                                            <param id="1" name="X co-ordinate">Enemy.X</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="531186361688678" type="Enemy">
+                                            <param id="0" name="Instance variable">Patrol</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                        <event-block sid="108766382002688">
+                            <conditions>
+                                <condition id="0" name="On collision with another object" sid="319344986466659" type="Enemy">
+                                    <param id="0" name="Object">EnemyBorder</param>
+                                </condition>
+                            </conditions>
+                            <actions />
+                            <sub-events>
+                                <event-block sid="347199425867734">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="414837774552442" type="Enemy">
+                                            <param id="0" name="Instance variable">Patrol</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">0</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="873071999283026" type="Enemy">
+                                            <param id="0" name="Instance variable">Patrol</param>
+                                            <param id="1" name="Value">1</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                                <event-block sid="272253564386194">
+                                    <conditions>
+                                        <condition id="-22" name="Else" sid="187778005091458" type="System" />
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Set value" sid="641780077997745" type="Enemy">
+                                            <param id="0" name="Instance variable">Patrol</param>
+                                            <param id="1" name="Value">0</param>
+                                        </action>
+                                    </actions>
+                                </event-block>
+                            </sub-events>
+                        </event-block>
+                    </sub-events>
+                </event-group>
+                <event-block sid="691288478752498">
+                    <conditions>
+                        <condition id="-7" name="Compare instance variable" sid="175757888468130" type="Enemy">
+                            <param id="0" name="Instance variable">Patrol</param>
+                            <param id="1" name="Comparison">0</param>
+                            <param id="2" name="Value">2</param>
+                        </condition>
+                    </conditions>
+                    <actions />
+                </event-block>
+                <event-block sid="961898704850563">
+                    <conditions>
+                        <condition id="1" name="Is overlapping another object" sid="166458087668753" type="Enemy">
+                            <param id="0" name="Object">Player</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="713945675321711" type="System">
+                            <param id="0" name="Group name">&quot;Movement&quot;</param>
+                            <param id="1" name="State">0</param>
+                        </action>
+                    </actions>
+                    <sub-events>
+                        <event-block sid="432216331409256">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="186771264402836" type="System">
+                                    <param id="0" name="Interval (seconds)">1</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action behavior="Platform" id="9" name="Set vector Y" sid="433373174933532" type="Enemy">
+                                    <param id="0" name="Vector Y">-100</param>
+                                </action>
+                                <action behavior="Platform" id="8" name="Set vector X" sid="793632977429512" type="Enemy">
+                                    <param id="0" name="Vector X">1000</param>
+                                </action>
+                                <action id="-16" name="Wait" sid="444445516371171" type="System">
+                                    <param id="0" name="Seconds">1.0</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
+                </event-block>
+            </sub-events>
+        </event-group>
     </events>
 </c2eventsheet>
