@@ -3,6 +3,8 @@
     <!--All the 'name' attributes are ignored by Construct 2 - they are there for readability only.-->
     <name>Event sheet 1</name>
     <events>
+        <variable constant="0" name="Health" sid="513901257774601" static="0" type="number">3</variable>
+        <variable constant="0" name="Coins" sid="752663456806270" static="0" type="number">0</variable>
         <variable constant="0" name="AttackCooldown" sid="594527560554891" static="0" type="number">0</variable>
         <variable constant="0" name="target_exit" sid="906938216859309" static="0" type="text"></variable>
         <event-group description="" sid="547079463332574" title="Player actions">
@@ -10,7 +12,7 @@
                 <event-block sid="999487786971529">
                     <conditions>
                         <condition id="0" name="On key pressed" sid="836270403183518" type="Keyboard">
-                            <param id="0" name="Key">32</param>
+                            <param id="0" name="Key">87</param>
                         </condition>
                     </conditions>
                     <actions>
@@ -156,6 +158,10 @@
                                     <param id="1" name="Duration">0.4</param>
                                     <param id="2" name="Mode">0</param>
                                 </action>
+                                <action id="-11" name="Subtract from" sid="818280072022048" type="System">
+                                    <param id="0" name="Variable">Health</param>
+                                    <param id="1" name="Value">1</param>
+                                </action>
                             </actions>
                             <sub-events>
                                 <event-block sid="228416797495731">
@@ -187,6 +193,40 @@
                             </sub-events>
                         </event-block>
                     </sub-events>
+                </event-block>
+                <event-block sid="681366477661178">
+                    <conditions>
+                        <condition id="-14" name="Compare variable" sid="645756739297785" type="System">
+                            <param id="0" name="Variable">Health</param>
+                            <param id="1" name="Comparison">3</param>
+                            <param id="2" name="Value">0</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-26" name="Restart layout" sid="794808859430547" type="System" />
+                        <action id="-9" name="Set value" sid="545906368663024" type="System">
+                            <param id="0" name="Variable">Health</param>
+                            <param id="1" name="Value">3</param>
+                        </action>
+                        <action id="-9" name="Set value" sid="584530466163361" type="System">
+                            <param id="0" name="Variable">Coins</param>
+                            <param id="1" name="Value">0</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="717520137360859">
+                    <conditions>
+                        <condition id="0" name="On collision with another object" sid="112027391447339" type="Player">
+                            <param id="0" name="Object">Coin</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="-9" name="Destroy" sid="552349244961796" type="Coin" />
+                        <action id="-10" name="Add to" sid="264895837504054" type="System">
+                            <param id="0" name="Variable">Coins</param>
+                            <param id="1" name="Value">1</param>
+                        </action>
+                    </actions>
                 </event-block>
             </sub-events>
         </event-group>
@@ -294,7 +334,12 @@
                                     <param id="0" name="Object">Player</param>
                                 </condition>
                             </conditions>
-                            <actions />
+                            <actions>
+                                <action id="-13" name="Set boolean" sid="333077059232878" type="Enemy">
+                                    <param id="0" name="Instance variable">Aggro</param>
+                                    <param id="1" name="Value">0</param>
+                                </action>
+                            </actions>
                             <sub-events>
                                 <event-block sid="491187260386991">
                                     <conditions>
@@ -330,6 +375,9 @@
                             <conditions>
                                 <condition id="0" name="On collision with another object" sid="319344986466659" type="Enemy">
                                     <param id="0" name="Object">EnemyBorder</param>
+                                </condition>
+                                <condition id="-8" name="Is boolean instance variable set" sid="694961357550929" type="Enemy">
+                                    <param id="0" name="Instance variable">Aggro</param>
                                 </condition>
                             </conditions>
                             <actions />
@@ -435,7 +483,32 @@
                         </event-block>
                     </sub-events>
                 </event-block>
+                <event-block sid="649538627110634">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="850691138078078" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-12" name="Set group active" sid="884609294389936" type="System">
+                            <param id="0" name="Group name">&quot;Movement&quot;</param>
+                            <param id="1" name="State">1</param>
+                        </action>
+                    </actions>
+                </event-block>
             </sub-events>
         </event-group>
+        <event-group description="" sid="167058005753568" title="HUD" />
+        <event-block sid="124287739517842">
+            <conditions>
+                <condition id="-1" name="Every tick" sid="473754517672870" type="System" />
+            </conditions>
+            <actions>
+                <action id="0" name="Set text" sid="695421080996393" type="Coins">
+                    <param id="0" name="Text">&quot;Coins: &quot; &amp;Coins</param>
+                </action>
+                <action id="0" name="Set text" sid="836587040115539" type="Health">
+                    <param id="0" name="Text">&quot;Health: &quot; &amp;Health</param>
+                </action>
+            </actions>
+        </event-block>
     </events>
 </c2eventsheet>

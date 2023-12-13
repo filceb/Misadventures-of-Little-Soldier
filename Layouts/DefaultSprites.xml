@@ -60,6 +60,7 @@
                     </properties>
                     <instance-variables>
                         <Patrol>1</Patrol>
+                        <Aggro>false</Aggro>
                     </instance-variables>
                     <behavior-instances>
                         <behavior-instance type="Platform">
@@ -177,6 +178,7 @@
                         <exitID>Level1</exitID>
                         <ID>Hub1</ID>
                         <exitLayout>Level1</exitLayout>
+                        <Available>true</Available>
                     </instance-variables>
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
