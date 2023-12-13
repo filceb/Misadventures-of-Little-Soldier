@@ -224,7 +224,7 @@
                         <action id="-9" name="Destroy" sid="552349244961796" type="Coin" />
                         <action id="-10" name="Add to" sid="264895837504054" type="System">
                             <param id="0" name="Variable">Coins</param>
-                            <param id="1" name="Value">1</param>
+                            <param id="1" name="Value">50</param>
                         </action>
                     </actions>
                 </event-block>
@@ -259,6 +259,40 @@
                                     <param id="0" name="Layout">Door.exitLayout</param>
                                 </action>
                             </actions>
+                            <sub-events>
+                                <event-block sid="702699614294330">
+                                    <conditions>
+                                        <condition id="-7" name="Compare instance variable" sid="356534944846439" type="Door">
+                                            <param id="0" name="Instance variable">ID</param>
+                                            <param id="1" name="Comparison">0</param>
+                                            <param id="2" name="Value">&quot;Exit&quot;</param>
+                                        </condition>
+                                    </conditions>
+                                    <actions>
+                                        <action id="-10" name="Add to" sid="720014687734236" type="System">
+                                            <param id="0" name="Variable">Coins</param>
+                                            <param id="1" name="Value">100</param>
+                                        </action>
+                                    </actions>
+                                    <sub-events>
+                                        <event-block sid="919422917059364">
+                                            <conditions>
+                                                <condition id="-14" name="Compare variable" sid="167147230558172" type="System">
+                                                    <param id="0" name="Variable">Health</param>
+                                                    <param id="1" name="Comparison">0</param>
+                                                    <param id="2" name="Value">3</param>
+                                                </condition>
+                                            </conditions>
+                                            <actions>
+                                                <action id="-10" name="Add to" sid="665945953790091" type="System">
+                                                    <param id="0" name="Variable">Coins</param>
+                                                    <param id="1" name="Value">50</param>
+                                                </action>
+                                            </actions>
+                                        </event-block>
+                                    </sub-events>
+                                </event-block>
+                            </sub-events>
                         </event-block>
                     </sub-events>
                 </event-block>
@@ -296,6 +330,10 @@
                     </conditions>
                     <actions>
                         <action id="-9" name="Destroy" sid="119964852793017" type="Enemy" />
+                        <action id="-10" name="Add to" sid="420151674364172" type="System">
+                            <param id="0" name="Variable">Coins</param>
+                            <param id="1" name="Value">25</param>
+                        </action>
                     </actions>
                 </event-block>
                 <event-group description="" sid="810753007821350" title="Movement">
