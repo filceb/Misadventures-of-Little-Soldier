@@ -31,7 +31,7 @@
             <instances>
                 <instance type="KillBox" uid="26">
                     <properties>
-                        <initial-visibility>Visible</initial-visibility>
+                        <initial-visibility>Invisible</initial-visibility>
                         <initial-animation>Default</initial-animation>
                         <initial-frame>0</initial-frame>
                         <collisions>Enabled</collisions>
@@ -39,11 +39,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>384.5</x>
-                        <y>146.5</y>
+                        <x>384.011962891</x>
+                        <y>112.417938232</y>
                         <z>0</z>
-                        <width>147</width>
-                        <height>89</height>
+                        <width>25</width>
+                        <height>54</height>
                         <depth>0</depth>
                         <hotspotX>0.004</hotspotX>
                         <hotspotY>0.492000014</hotspotY>
@@ -92,11 +92,11 @@
                         <x>676</x>
                         <y>200</y>
                         <z>0</z>
-                        <width>100</width>
-                        <height>180</height>
+                        <width>19.200000763</width>
+                        <height>34.560001373</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
-                        <hotspotY>0.467999995</hotspotY>
+                        <hotspotY>0.458333343</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>
@@ -186,11 +186,54 @@
                         <x>209</x>
                         <y>505</y>
                         <z>0</z>
-                        <width>180</width>
-                        <height>230</height>
+                        <width>33.120002747</width>
+                        <height>51.520000458</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>
+                        <angle>0</angle>
+                        <opacity>1</opacity>
+                    </world>
+                </instance>
+                <instance type="Player" uid="53">
+                    <properties>
+                        <initial-visibility>Visible</initial-visibility>
+                        <initial-animation>Default</initial-animation>
+                        <initial-frame>0</initial-frame>
+                        <collisions>Enabled</collisions>
+                    </properties>
+                    <behavior-instances>
+                        <behavior-instance type="Platform">
+                            <properties>
+                                <max-speed>170</max-speed>
+                                <acceleration>750</acceleration>
+                                <deceleration>750</deceleration>
+                                <jump-strength>400</jump-strength>
+                                <gravity>1200</gravity>
+                                <max-fall-speed>1000</max-fall-speed>
+                                <double-jump>Disabled</double-jump>
+                                <jump-sustain>0</jump-sustain>
+                                <default-controls>No</default-controls>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                        <behavior-instance type="ScrollTo">
+                            <properties>
+                                <initial-state>Enabled</initial-state>
+                            </properties>
+                        </behavior-instance>
+                    </behavior-instances>
+                    <blend-mode>0</blend-mode>
+                    <effect-fallback>0</effect-fallback>
+                    <world>
+                        <x>430</x>
+                        <y>223</y>
+                        <z>0</z>
+                        <width>29.994091034</width>
+                        <height>58.746368408</height>
+                        <depth>0</depth>
+                        <hotspotX>0.699999988</hotspotX>
+                        <hotspotY>0.400000006</hotspotY>
                         <angle>0</angle>
                         <opacity>1</opacity>
                     </world>

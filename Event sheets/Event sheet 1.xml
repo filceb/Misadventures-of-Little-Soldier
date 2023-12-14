@@ -35,6 +35,23 @@
                             <param id="0" name="State">0</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="190778086644817">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="581387082902779" type="System">
+                                    <param id="0" name="Interval (seconds)">0.3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="728781109254201" type="Audio">
+                                    <param id="0" name="Audio file">footstep</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-block sid="441237002309240">
                     <conditions>
@@ -50,6 +67,23 @@
                             <param id="0" name="State">1</param>
                         </action>
                     </actions>
+                    <sub-events>
+                        <event-block sid="549586772054259">
+                            <conditions>
+                                <condition id="-6" name="Every X seconds" sid="949320433695028" type="System">
+                                    <param id="0" name="Interval (seconds)">0.3</param>
+                                </condition>
+                            </conditions>
+                            <actions>
+                                <action id="0" name="Play" sid="258820913258470" type="Audio">
+                                    <param id="0" name="Audio file">footstep</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">-10</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                </action>
+                            </actions>
+                        </event-block>
+                    </sub-events>
                 </event-block>
                 <event-group description="" sid="733997094959776" title="Attack">
                     <sub-events>
@@ -77,6 +111,19 @@
                                         <condition id="7" name="Is mirrored" sid="968666725747441" type="Player" />
                                     </conditions>
                                     <actions>
+                                        <action id="4" name="Set animation" sid="516184860722690" type="Player">
+                                            <param id="0" name="Animation">&quot;attack&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="223296099820060" type="System">
+                                            <param id="0" name="Seconds">0.2</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="400343178753099" type="Audio">
+                                            <param id="0" name="Audio file">sword-whip</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">10</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
                                         <action id="0" name="Spawn another object" sid="773633244969834" type="Player">
                                             <param id="0" name="Object">KillBox</param>
                                             <param id="1" name="Layer">0</param>
@@ -103,6 +150,19 @@
                                         <condition id="-22" name="Else" sid="983278691786527" type="System" />
                                     </conditions>
                                     <actions>
+                                        <action id="4" name="Set animation" sid="124116712938727" type="Player">
+                                            <param id="0" name="Animation">&quot;attack&quot;</param>
+                                            <param id="1" name="From">1</param>
+                                        </action>
+                                        <action id="-16" name="Wait" sid="858738911353952" type="System">
+                                            <param id="0" name="Seconds">0.2</param>
+                                        </action>
+                                        <action id="0" name="Play" sid="309114567774503" type="Audio">
+                                            <param id="0" name="Audio file">sword-whip</param>
+                                            <param id="2" name="Loop">0</param>
+                                            <param id="3" name="Volume">10</param>
+                                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                                        </action>
                                         <action id="0" name="Spawn another object" sid="833335147408313" type="Player">
                                             <param id="0" name="Object">KillBox</param>
                                             <param id="1" name="Layer">0</param>
@@ -161,6 +221,12 @@
                                 <action id="-11" name="Subtract from" sid="818280072022048" type="System">
                                     <param id="0" name="Variable">Health</param>
                                     <param id="1" name="Value">1</param>
+                                </action>
+                                <action id="0" name="Play" sid="866730053653681" type="Audio">
+                                    <param id="0" name="Audio file">damage-1</param>
+                                    <param id="2" name="Loop">0</param>
+                                    <param id="3" name="Volume">0</param>
+                                    <param id="1" name="Tag (optional)">&quot;&quot;</param>
                                 </action>
                             </actions>
                             <sub-events>
@@ -225,6 +291,22 @@
                         <action id="-10" name="Add to" sid="264895837504054" type="System">
                             <param id="0" name="Variable">Coins</param>
                             <param id="1" name="Value">50</param>
+                        </action>
+                        <action id="0" name="Play" sid="838273036113157" type="Audio">
+                            <param id="0" name="Audio file">coin-collect</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">0</param>
+                            <param id="1" name="Tag (optional)">&quot;&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+                <event-block sid="679416740420593">
+                    <conditions>
+                        <condition id="-2" name="On start of layout" sid="142050930117461" type="System" />
+                    </conditions>
+                    <actions>
+                        <action id="-20" name="Set layout scale" sid="256440504273646" type="System">
+                            <param id="0" name="Scale">2.5</param>
                         </action>
                     </actions>
                 </event-block>
@@ -350,6 +432,9 @@
                                 <action behavior="Platform" id="7" name="Simulate control" sid="713563887160573" type="Enemy">
                                     <param id="0" name="Control">1</param>
                                 </action>
+                                <action id="7" name="Set mirrored" sid="765357135702623" type="Enemy">
+                                    <param id="0" name="State">0</param>
+                                </action>
                             </actions>
                         </event-block>
                         <event-block sid="929786996928300">
@@ -363,6 +448,9 @@
                             <actions>
                                 <action behavior="Platform" id="7" name="Simulate control" sid="369542794091971" type="Enemy">
                                     <param id="0" name="Control">0</param>
+                                </action>
+                                <action id="7" name="Set mirrored" sid="682649603446261" type="Enemy">
+                                    <param id="0" name="State">1</param>
                                 </action>
                             </actions>
                         </event-block>
@@ -547,6 +635,29 @@
                     <param id="0" name="Text">&quot;Health: &quot; &amp;Health</param>
                 </action>
             </actions>
+        </event-block>
+        <event-block sid="815537269977130">
+            <conditions>
+                <condition id="-2" name="On start of layout" sid="106338226220007" type="System" />
+            </conditions>
+            <actions />
+            <sub-events>
+                <event-block sid="614219815359275">
+                    <conditions>
+                        <condition id="5" inverted="1" name="Is tag playing" sid="293559300257015" type="Audio">
+                            <param id="0" name="Tag">&quot;background-music&quot;</param>
+                        </condition>
+                    </conditions>
+                    <actions>
+                        <action id="0" name="Play" sid="609904658072234" type="Audio">
+                            <param id="0" name="Audio file">background-music</param>
+                            <param id="2" name="Loop">0</param>
+                            <param id="3" name="Volume">-10</param>
+                            <param id="1" name="Tag (optional)">&quot;background-music&quot;</param>
+                        </action>
+                    </actions>
+                </event-block>
+            </sub-events>
         </event-block>
     </events>
 </c2eventsheet>

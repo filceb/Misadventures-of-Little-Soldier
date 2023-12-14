@@ -10,6 +10,7 @@
     <unique-id>1z8pk6r7f1777</unique-id>
     <saved-with-version>28000</saved-with-version>
     <used-plugins>
+        <plugin author="Scirra" id="Audio" version="1">Audio</plugin>
         <plugin author="Scirra" id="Keyboard" version="1">Keyboard</plugin>
         <plugin author="Scirra" id="Mouse" version="1">Mouse</plugin>
         <plugin author="Scirra" id="Sprite" version="1">Sprite</plugin>
@@ -51,7 +52,7 @@
     <object-folder>
         <object-type name="Background" sid="591233290839525">
             <plugin id="TiledBg" />
-            <texture />
+            <texture original-source="C:\Users\filce\Documents\Gry2\Textures\back2.png" />
         </object-type>
         <object-type name="FloorTile" sid="755798721979572">
             <plugin id="Sprite" />
@@ -62,7 +63,14 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="886574613598690" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
+                    <frame duration="1" hotspotX="0.510204" hotspotY="0.588235" original-source="C:\Users\filce\Documents\Gry2\Textures\floor.png">
+                        <collision-poly>
+                            <point x="0.0102041" y="0.0294118" />
+                            <point x="0.989796" y="0.0294118" />
+                            <point x="0.989796" y="0.970588" />
+                            <point x="0.0102041" y="0.963235" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -78,8 +86,64 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="431409298571634" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
-                        <image-point name="Attack" x="1.004" y="0.488" />
+                    <frame duration="1" hotspotX="0.7" hotspotY="0.4" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-swrd-drw-03.png">
+                        <image-point name="Attack" x="0.94" y="0.5" />
+                        <collision-poly>
+                            <point x="0.350256" y="0.118996" />
+                            <point x="0.932307" y="0.123477" />
+                            <point x="0.955641" y="0.958334" />
+                            <point x="0.354359" y="0.958333" />
+                        </collision-poly>
+                    </frame>
+                </animation>
+                <animation framecount="6" loop="0" name="Attack" pingpong="0" repeatcount="1" repeatto="0" sid="210994335094330" speed="5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-attack1-00.png">
+                        <collision-poly>
+                            <point x="0.3275" y="0.371621" />
+                            <point x="0.65" y="0.375" />
+                            <point x="0.665" y="0.97973" />
+                            <point x="0.3275" y="0.976352" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-attack2-01.png">
+                        <collision-poly>
+                            <point x="0.2925" y="0.256756" />
+                            <point x="0.64" y="0.260135" />
+                            <point x="0.67" y="0.972973" />
+                            <point x="0.2975" y="0.976352" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-attack1-02.png">
+                        <collision-poly>
+                            <point x="0.355" y="0.25" />
+                            <point x="0.715" y="0.256757" />
+                            <point x="0.7175" y="0.972973" />
+                            <point x="0.3525" y="0.969595" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-attack1-03.png">
+                        <collision-poly>
+                            <point x="0.3775" y="0.969594" />
+                            <point x="0.3825" y="0.297297" />
+                            <point x="0.6675" y="0.304054" />
+                            <point x="0.6625" y="0.976351" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-attack1-04.png">
+                        <collision-poly>
+                            <point x="0.365" y="0.25" />
+                            <point x="0.6575" y="0.253378" />
+                            <point x="0.665" y="0.986486" />
+                            <point x="0.37" y="0.976352" />
+                        </collision-poly>
+                    </frame>
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.513158" original-source="C:\Users\filce\Documents\Gry2\Textures\Player\adventurer-swrd-drw-03.png">
+                        <collision-poly>
+                            <point x="0.34" y="0.260135" />
+                            <point x="0.62" y="0.273649" />
+                            <point x="0.6425" y="0.983108" />
+                            <point x="0.3425" y="0.976352" />
+                        </collision-poly>
                     </frame>
                 </animation>
             </animation-folder>
@@ -97,12 +161,12 @@
             </instance-variables>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="152282801979977" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.5">
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.5" original-source="C:\Users\filce\Documents\Gry2\Textures\Door\Idle.png">
                         <collision-poly>
-                            <point x="0.24" y="0" />
-                            <point x="0.731999" y="0" />
-                            <point x="0.731999" y="1" />
-                            <point x="0.24" y="1" />
+                            <point x="0.250833" y="0.0172414" />
+                            <point x="0.722332" y="0.0172414" />
+                            <point x="0.722332" y="0.982759" />
+                            <point x="0.250833" y="0.982759" />
                         </collision-poly>
                     </frame>
                 </animation>
@@ -140,7 +204,14 @@
             </behaviors>
             <animation-folder>
                 <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="733521350964585" speed="5">
-                    <frame duration="1" hotspotX="0.5" hotspotY="0.468" />
+                    <frame duration="1" hotspotX="0.5" hotspotY="0.458333" original-source="C:\Users\filce\Documents\Gry2\Textures\HeavyBandit_Idle_0.png">
+                        <collision-poly>
+                            <point x="0.286458" y="0.151042" />
+                            <point x="0.697916" y="0.151042" />
+                            <point x="0.688151" y="0.958333" />
+                            <point x="0.291016" y="0.958984" />
+                        </collision-poly>
+                    </frame>
                 </animation>
             </animation-folder>
         </object-type>
@@ -168,7 +239,7 @@
         <object-type global="1" name="Health" sid="201898241165386">
             <plugin id="Text" />
         </object-type>
-        <object-type name="Coins" sid="314888912870992">
+        <object-type global="1" name="Coins" sid="314888912870992">
             <plugin id="Text" />
         </object-type>
         <object-type name="Coin" sid="436389417893324">
@@ -178,6 +249,26 @@
                     <frame duration="1" hotspotX="0.5" hotspotY="0.5" />
                 </animation>
             </animation-folder>
+        </object-type>
+        <object-type name="WallTile" sid="462677824876798">
+            <plugin id="Sprite" />
+            <behaviors>
+                <behavior-type name="Solid" sid="946278615483798">
+                    <behavior id="solid" />
+                </behavior-type>
+            </behaviors>
+            <animation-folder>
+                <animation framecount="1" loop="0" name="Default" pingpong="0" repeatcount="1" repeatto="0" sid="430421313370206" speed="5">
+                    <frame duration="1" hotspotX="0.558824" hotspotY="0.5" original-source="C:\Users\filce\Documents\Gry2\Textures\wall.png" />
+                </animation>
+            </animation-folder>
+        </object-type>
+        <object-type name="Background2" sid="127114589325195">
+            <plugin id="TiledBg" />
+            <texture original-source="C:\Users\filce\Documents\Gry2\Textures\BG2.png" />
+        </object-type>
+        <object-type name="Audio" sid="676687073760159">
+            <plugin id="Audio" />
         </object-type>
     </object-folder>
     <families />
@@ -192,8 +283,30 @@
     <global-instances>
         <global-instance type="Keyboard" uid="9" />
         <global-instance type="Mouse" uid="25" />
+        <global-instance type="Audio" uid="36">
+            <properties>
+                <timescale-audio>Off</timescale-audio>
+                <saveload>All</saveload>
+                <play-in-background>No</play-in-background>
+                <positioned-audio></positioned-audio>
+                <panning-model>HRTF</panning-model>
+                <distance-model>Inverse</distance-model>
+                <listener-z-height>600</listener-z-height>
+                <reference-distance>600</reference-distance>
+                <maximum-distance>10000</maximum-distance>
+                <roll-off-factor>1</roll-off-factor>
+            </properties>
+        </global-instance>
     </global-instances>
-    <sounds-folder />
+    <sounds-folder>
+        <file name="background-music.m4a" />
+        <file name="background-music.ogg" />
+        <file name="coin-collect.m4a" />
+        <file name="coin-collect.ogg" />
+        <file name="sword-whip.ogg" />
+        <file name="footstep.ogg" />
+        <file name="damage-1.ogg" />
+    </sounds-folder>
     <music-folder />
     <files-folder>
         <file-folder name="Icons">
