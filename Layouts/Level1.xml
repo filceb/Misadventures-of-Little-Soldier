@@ -134,11 +134,11 @@
                     <blend-mode>0</blend-mode>
                     <effect-fallback>0</effect-fallback>
                     <world>
-                        <x>520.881103516</x>
-                        <y>120.126586914</y>
+                        <x>516.244628906</x>
+                        <y>133.683807373</y>
                         <z>0</z>
-                        <width>47.370876312</width>
-                        <height>47.370876312</height>
+                        <width>26.383182526</width>
+                        <height>26.383182526</height>
                         <depth>0</depth>
                         <hotspotX>0.5</hotspotX>
                         <hotspotY>0.5</hotspotY>

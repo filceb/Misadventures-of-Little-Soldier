@@ -651,8 +651,8 @@
                     <actions>
                         <action id="0" name="Play" sid="609904658072234" type="Audio">
                             <param id="0" name="Audio file">background-music</param>
-                            <param id="2" name="Loop">0</param>
-                            <param id="3" name="Volume">-10</param>
+                            <param id="2" name="Loop">1</param>
+                            <param id="3" name="Volume">-20</param>
                             <param id="1" name="Tag (optional)">&quot;background-music&quot;</param>
                         </action>
                     </actions>
